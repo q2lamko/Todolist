@@ -2,6 +2,7 @@ import React, {ChangeEvent, useState} from "react";
 
 type EditabeSpanPropsType = {
     title: string
+    onChange:(newValue: string) => void
 
 }
 
@@ -13,11 +14,18 @@ export function EditabeSpan(props: EditabeSpanPropsType) {
         setEditMode(true)
         setTitle(props.title)
     }
-    let activateViewMode = () => setEditMode(false)
+    let activateViewMode = () => {
+        setEditMode(false)
+        props.onChange(title)
+    }
 
     const onChangeTitleHandler= (e:ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
 
     return editMode
-        ? <input value={title} onChange={onChangeTitleHandler} onBlur={activateViewMode} autoFocus/>
+        ? <input
+            value={title}
+            onChange={onChangeTitleHandler}
+            onBlur={activateViewMode}
+            autoFocus/>
         : <span onDoubleClick={activateMode}>{props.title}</span>
 }
