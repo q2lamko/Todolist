@@ -1,4 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import {Button, TextField, IconButton} from "@material-ui/core";
+import {ControlPoint} from "@material-ui/icons";
 
 export type AddItemFormPropsType = {
     addItem: (title: string) => void;
@@ -24,19 +26,25 @@ export function AddItemForm(props: AddItemFormPropsType) {
             props.addItem(newTaskTitle.trim())
             setNewTaskTitle("");
         } else {
-            setError("Pustoe pole")
+            setError("Введите текст!")
         }
     }
 
 
     return <div>
-        <input
+
+        <TextField
+            variant={"outlined"}
+            label={'Enter value'}
             value={newTaskTitle}
             onChange={OnNewChange}
             onKeyPress={onKeyPressHandler}
-            className={error ? "error" : ""}
+            error={!!error}
+            helperText={error}
         />
-        <button onClick={addTask}>+</button>
-        {error && <div className='error-message'>{error}</div>}
+        <IconButton  color="primary" onClick={addTask}>
+            <ControlPoint/>
+        </IconButton>
+
     </div>
 }

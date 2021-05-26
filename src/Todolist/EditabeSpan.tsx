@@ -1,14 +1,15 @@
 import React, {ChangeEvent, useState} from "react";
+import {TextField} from "@material-ui/core";
 
 type EditabeSpanPropsType = {
     title: string
-    onChange:(newValue: string) => void
+    onChange: (newValue: string) => void
 
 }
 
 export function EditabeSpan(props: EditabeSpanPropsType) {
-    let[editMode, setEditMode]=useState(false)
-    let[title, setTitle]=useState("")
+    let [editMode, setEditMode] = useState(false)
+    let [title, setTitle] = useState("")
 
     let activateMode = () => {
         setEditMode(true)
@@ -19,10 +20,10 @@ export function EditabeSpan(props: EditabeSpanPropsType) {
         props.onChange(title)
     }
 
-    const onChangeTitleHandler= (e:ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
+    const onChangeTitleHandler = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
 
     return editMode
-        ? <input
+        ? <TextField
             value={title}
             onChange={onChangeTitleHandler}
             onBlur={activateViewMode}
