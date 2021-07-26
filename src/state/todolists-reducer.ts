@@ -13,7 +13,7 @@ export const todolistsReducer = (state: Array<TodolistType>, action: ActionType)
         }
         case 'ADD-TODOLIST': {
             return {
-
+            {...state}
             }
         }
         default:
