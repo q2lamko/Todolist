@@ -81,16 +81,16 @@ function App() {
     let todolistId2 = v1();
 
     let [tasksObj, setTasks] = useState<TasksStateType>({
-            [todolistId1]: [
-                {id: v1(), title: "HTML&CSS", isDone: true},
-                {id: v1(), title: "35", isDone: true},
-                {id: v1(), title: "ReactJS", isDone: false},
-                {id: v1(), title: "C++", isDone: false}
-            ], [todolistId2]: [
-                {id: v1(), title: "book", isDone: false},
-                {id: v1(), title: "shoose", isDone: false},
-            ],
-        })
+        [todolistId1]: [
+            {id: v1(), title: "HTML&CSS", isDone: true},
+            {id: v1(), title: "35", isDone: true},
+            {id: v1(), title: "ReactJS", isDone: false},
+            {id: v1(), title: "C++", isDone: false}
+        ], [todolistId2]: [
+            {id: v1(), title: "book", isDone: false},
+            {id: v1(), title: "shoose", isDone: false},
+        ],
+    })
 
     let [todolists, setTodolist] = useState<Array<TodolistType>>([
         {id: todolistId1, title: "what to learn", filter: "all"},
@@ -125,7 +125,7 @@ function App() {
             </AppBar>
 
             <Container fixed>
-                <Grid container style={{marginBottom:"10px", marginTop: "10px"}}>
+                <Grid container style={{marginBottom: "10px", marginTop: "10px"}}>
                     <AddItemForm addItem={addTodolist}/>
                 </Grid>
                 <Grid container spacing={4}>
@@ -144,20 +144,20 @@ function App() {
                             }
                             return <Grid item>
                                 <Paper style={{padding: "15px"}}>
-                                <Todolist
-                                key={tl.id}
-                                id={tl.id}
-                                title={tl.title}
-                                tasks={tasksForTodoList}
-                                removeTask={removeTask}
-                                changeFilter={changeFilter}
-                                addTask={addTask}
-                                changeTaskStatus={changeStatus}
-                                changeTaskTitle={changeTaskTitle}
-                                filter={tl.filter}
-                                removeTodolist={removeTodolist}
-                                changeTodolistTitle={changeTodolistTitle}
-                            />
+                                    <Todolist
+                                        key={tl.id}
+                                        id={tl.id}
+                                        title={tl.title}
+                                        tasks={tasksForTodoList}
+                                        removeTask={removeTask}
+                                        changeFilter={changeFilter}
+                                        addTask={addTask}
+                                        changeTaskStatus={changeStatus}
+                                        changeTaskTitle={changeTaskTitle}
+                                        filter={tl.filter}
+                                        removeTodolist={removeTodolist}
+                                        changeTodolistTitle={changeTodolistTitle}
+                                    />
                                 </Paper>
                             </Grid>
                         })
