@@ -14,7 +14,7 @@ export type TodolistType = {
     title: string
     filter: FilterValuesType
 }
-type TasksStateType = {
+export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
@@ -36,11 +36,11 @@ function App() {
         setTasks({...tasksObj})
     }
 
-    function changeStatus(taskId: string, idDone: boolean, todolistId: string) {
+    function changeStatus(taskId: string, isDone: boolean, todolistId: string) {
         let tasks = tasksObj[todolistId]
         let task = tasks.find(t => t.id === taskId);
         if (task) {
-            task.isDone = idDone;
+            task.isDone = isDone;
             setTasks({...tasksObj})
         }
     }
@@ -86,7 +86,8 @@ function App() {
             {id: v1(), title: "35", isDone: true},
             {id: v1(), title: "ReactJS", isDone: false},
             {id: v1(), title: "C++", isDone: false}
-        ], [todolistId2]: [
+        ],
+        [todolistId2]: [
             {id: v1(), title: "book", isDone: false},
             {id: v1(), title: "shoose", isDone: false},
         ],
@@ -131,11 +132,7 @@ function App() {
                 <Grid container spacing={4}>
                     {
                         todolists.map((tl) => {
-
-
                             let tasksForTodoList = tasksObj[tl.id];
-
-
                             if (tl.filter === "completed") {
                                 tasksForTodoList = tasksForTodoList.filter(t => t.isDone);
                             }
