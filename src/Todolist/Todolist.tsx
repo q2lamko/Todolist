@@ -27,7 +27,6 @@ export type TaskType = {
 }
 
 export function Todolist(props: PropsType) {
-
     const onAllClickHandler = () => {
         props.changeFilter("all", props.id)
     }
@@ -43,8 +42,6 @@ export function Todolist(props: PropsType) {
     const changeTodolistTitle = (newTitle:string) => {
         props.changeTodolistTitle(props.id , newTitle)
     }
-
-
     const addTask = (title: string) => {
         props.addTask(title, props.id)
     }
