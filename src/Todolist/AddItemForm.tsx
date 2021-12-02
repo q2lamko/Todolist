@@ -23,7 +23,7 @@ export function AddItemForm(props: AddItemFormPropsType) {
     }
     const addTask = () => {
         if (newTaskTitle.trim() !== "") {
-            props.addItem(newTaskTitle.trim())
+            props.addItem(newTaskTitle.trim() )
             setNewTaskTitle("");
         } else {
             setError("Введите текст!")

@@ -45,7 +45,7 @@ export function Todolist(props: PropsType) {
     const addTask = (title: string) => {
         props.addTask(title, props.id)
     }
-
+    debugger
     return <div>
         <h3> <EditabeSpan title={props.title} onChange={changeTodolistTitle}/>
 
@@ -71,8 +71,6 @@ export function Todolist(props: PropsType) {
                         onChange={onChangeStatusHandler}
                         checked={t.isDone}/>
                         <EditabeSpan title={t.title} onChange={onChangeTitleHandler}/>
-
-
                         <IconButton aria-label="delete" color="inherit" onClick={onClickHandler}>
                             <Delete />
                         </IconButton>
